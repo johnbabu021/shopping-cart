@@ -1,4 +1,4 @@
-import { lazy, Suspense, useContext, useEffect, useRef } from "react";
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as ROUTES from './constants/routes'
 import userContext from "./context/user";
@@ -35,7 +35,7 @@ function App() {
     //here we are passing the user in an object when may items are in value we can take that by destrcturing that 
     <userContext.Provider value={{ user }}>
       <Router>
-        <Suspense fallback={<img src="./loading.gif" />}>
+        <Suspense fallback={<img src="./loading.gif" alt="logo" />}>
           <Switch>
             <IsUserLoggedIn user={user} loggedInPath={ROUTES.HOME} path={ROUTES.LOGIN} exact >
               <Login></Login>

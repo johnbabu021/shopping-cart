@@ -46,7 +46,6 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
             <div className="flex items-center justify-start gap-8">
 
                 <img src={`/images/${name}.jpg`} className="h-40" />
-                <p className="items-center">{name}</p>
                 <p className="items-center">{size}</p>
                 <p className="items-center">{totalPrice}</p>
                 <p className="items-center">{name}</p>

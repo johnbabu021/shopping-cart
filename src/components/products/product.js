@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../../custom_styles/product.css'
 import propTypes from 'prop-types'
-import * as ROUTES from '../../constants/routes'
 export default function Product({ productname, productprice, proId, productdescription }) {
 
 
