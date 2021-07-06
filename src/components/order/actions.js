@@ -13,7 +13,6 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
     useEffect(async () => {
     }, [])
     const handleDelete = async () => {
-        console.log('deleted')
         await firebase.firestore().collection('users').doc(user?.docId).update({
             orders: order ? FieldValue.arrayRemove({ proId, count, price, size, name }) : null
 
