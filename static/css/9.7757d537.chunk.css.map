@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/custom_styles/product.css"],"names":[],"mappings":"AAAA,OACA,wCAGA","file":"9.7757d537.chunk.css","sourcesContent":[".cards{\nbox-shadow: 10px 10px 50px rgba(0, 0, 0, .2);\n\n\n}\n\n"]}
