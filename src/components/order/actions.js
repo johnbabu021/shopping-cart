@@ -1,19 +1,18 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import FirebaseContext from "../../context/firebase"
 import UseUser from "../../hooks/use-user"
 
 
 
 export default function Actions({ proId, size, count, name, price, order, pin, address, mobile, landmark, username, isInvalid }) {
-    const [proPrice, setProPrice] = useState(price / count)
-    const [totalPrice, setTotalPrice] = useState(proPrice * count)
-    const [proCount, setProCount] = useState(count)
+    const proPrice = price / count
+    const totalPrice = proPrice * count
+    const proCount = count
     const { user, orderCollection } = UseUser()
     const { firebase, FieldValue } = useContext(FirebaseContext)
     useEffect(async () => {
     }, [])
     const handleDelete = async () => {
-        console.log('deleted')
         await firebase.firestore().collection('users').doc(user?.docId).update({
             orders: order ? FieldValue.arrayRemove({ proId, count, price, size, name }) : null
 
@@ -22,7 +21,6 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
     }
     const invalidCount = count === 1
     const handlePlaceOrder = async (event) => {
-        console.log(orderCollection.docId, 'docid')
 
         await firebase.firestore().collection('orders').doc(orderCollection?.docId).update({
             order: FieldValue.arrayUnion({ proId, count, price, name, size, date: Date.now(), username, pin, address, landmark, mobile })

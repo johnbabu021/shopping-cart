@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom'
 import * as ROUTES from '../constants/routes'
 
 export default function ProtectedDashboard({ user, children, ...rest }) {
-    console.log(rest, "rest")
 
     return (
         <Route
