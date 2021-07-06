@@ -25,7 +25,7 @@
     "react-scripts:start": "sleep 5&& react-scripts start",
     "react-scripts:build":"sleep 5 && react-scripts build",
     "start": "run-p watch:css react-scripts:start",
-    "build": "react-scripts:build",
+    "build": "run-s build:css react-scripts:dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy":"npm run build",
