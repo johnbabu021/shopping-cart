@@ -35,11 +35,9 @@ export default function ProductDetails() {
 
 
     }, [cart, proId, userId])
-    let invalidSize
     const handleCart = async (event) => {
         event.preventDefault()
-        if (size === undefined) {
-            invalidSize = true
+        if (size === null) {
             alert('please select a size')
             return null
         }
@@ -59,8 +57,7 @@ export default function ProductDetails() {
 
     const handleOrder = async (event) => {
         event.preventDefault()
-        if (size === undefined) {
-            invalidSize = true
+        if (size === null) {
             alert('please select a size')
             return null
         }

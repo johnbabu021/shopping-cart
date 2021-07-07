@@ -1,4 +1,4 @@
-import { firebase, FieldValue } from '../lib/firebase'
+import { firebase } from '../lib/firebase'
 
 
 export async function getUserByUserId(userId) {
@@ -85,7 +85,7 @@ export default async function getUserCartItems(userId) {
 
     const userCart = await userDetails.map((item) => {
         if (item.cart.length > 0) {
-            return item.cart.map((cart) => ({
+            const userCartItems = item.cart.map((cart) => ({
                 proId: cart.proId,
                 size: cart.size,
                 count: cart.count,
@@ -93,7 +93,9 @@ export default async function getUserCartItems(userId) {
                 price: cart.price
 
             }))
+            return userCartItems
         }
+        return null
 
 
     }
@@ -111,7 +113,7 @@ export async function getUserOrderItems(userId) {
 
     const userOrder = await userDetails.map((item) => {
         if (item.orders.length > 0) {
-            return item.orders.map((order) => ({
+            const userCart = item.orders.map((order) => ({
                 proId: order.proId,
                 size: order.size,
                 count: order.count,
@@ -119,8 +121,9 @@ export async function getUserOrderItems(userId) {
                 price: order.price
 
             }))
+            return userCart
         }
-
+        return null
 
     }
 
@@ -131,14 +134,3 @@ export async function getUserOrderItems(userId) {
 }
 
 
-export async function deleteSpecifiedCartItem(userId, proId, name, count, size, price) {
-
-    const result = await firebase.firestore().collection('users').where("userId", "==", userId).get()
-    const userDetails = result.docs.map((item) => ({ ...item.data(), docId: item.id }))
-    userDetails.map((item) => {
-
-        cart: FieldValue.arrayRemove({ proId, name, count, size, price })
-    })
-    //remove by fieldvalue
-
-}
