@@ -23,7 +23,7 @@ export default function Home() {
 
             <Header            //here we are passing the user in {} because of javascript  if it is not used then it should be a string
             />
-            <div className="container grid pt-24 mx-auto gap-9 xl:grid-cols-5 md:grid-cols-3 sm:justify-center xs:grid-cols-2">
+            <div className="container grid pt-24 mx-auto gap-9 xl:grid-cols-5 md:grid-cols-3 xs:justify-center xs:grid-cols-1">
 
                 {!product ? (
                     <div className="grid grid-cols-4 gap-5">

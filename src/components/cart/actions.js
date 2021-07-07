@@ -61,8 +61,8 @@ export default function Actions({ proId, size, count, name, price, cart }) {
 
     return (
 
-        < div className="grid px-4 mb-10 rounded-md select-none lg:grid-cols-2 h-88 cards max-h-84 sm:gir-cols-1">
-            <div className="flex items-center justify-start gap-8">
+        < div className="grid px-4 mb-10 rounded-md select-none lg:grid-cols-2 h-88 cards max-h-84 ">
+            <div className="items-center justify-start sm:flex sm:gap-8 xs:gap-2 xs:grid-row-3">
 
                 <img src={`/images/${name}.jpg`} className="h-40" alt={`${name}`} />
                 <p className="items-center">{size}</p>
@@ -78,9 +78,9 @@ export default function Actions({ proId, size, count, name, price, cart }) {
 
 
                 </div>
-                <div className="flex items-center gap-5 md:justify-center">
+                <div className="grid items-center gap-5 sm:flex md:justify-center xs:grid-rows-2">
 
-                    <button disabled={order} className={`text-center border-2 text-purple-medium border-gray-medium ${order && 'opacity-10'}`} onClick={handleOrder}>MOVE TO BAG</button>
+                    <button disabled={order} className={` text-center border-2 text-purple-medium border-gray-medium ${order && 'opacity-10'}`} onClick={handleOrder}>MOVE TO BAG</button>
                     <button className="border-2 text-red-primary border-gray-medium " onClick={handleDelete}>DELETE</button>
                 </div>
             </div>

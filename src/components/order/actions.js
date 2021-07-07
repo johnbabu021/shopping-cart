@@ -39,7 +39,7 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
     return (
 
         < div className="px-4 mb-10 rounded-md select-none lg:grid md:grid-cols-1 h-88 cards max-h-84 sm:grid-cols-1">
-            <div className="flex items-center justify-start gap-8">
+            <div className="items-center justify-start gap-8 sm:flex xs:grid-rows-3">
 
                 <img src={`/images/${name}.jpg`} className="h-40" alt="product" />
                 <p className="items-center">{size}</p>
@@ -55,7 +55,7 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
 
 
                 </div>
-                <div className="flex items-center gap-5 md:justify-center">
+                <div className="grid items-center gap-5 sm:flex md:justify-center xs:grid-rows-2">
 
                     <button
                         disabled={isInvalid}
