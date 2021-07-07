@@ -2,7 +2,6 @@ import propTypes from 'prop-types'
 import { Route, Redirect } from 'react-router-dom'
 
 export default function IsUserLoggedIn({ user, loggedInPath, children, ...rest }) {
-  
     //use a reference to medium about this
     //child contains everything inside that 
     //ie wrapped like isuserloggedin and protectedroute and this contains props that like props.children here it is destrctured

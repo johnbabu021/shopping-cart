@@ -4,6 +4,7 @@ import * as ROUTES from '../constants/routes'
 
 export default function ProtectedDashboard({ user, children, ...rest }) {
 
+    
     return (
         <Route
 
