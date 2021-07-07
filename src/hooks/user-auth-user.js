@@ -7,8 +7,8 @@ export default function useAuthListner() {
     //when page loads firebase context is null and when it is invoked it has some value
     //here we are taking the firebase and fieldvalue as objects in provider so we have to take these as objects here also
     const { firebase } = useContext(FirebaseContext)
-    useEffect(async () => {
-        const listner = await firebase.auth().onAuthStateChanged((authUser) => {
+    useEffect(() => {
+        const listner = firebase.auth().onAuthStateChanged((authUser) => {
             if (authUser) {
                 localStorage.setItem('authUser', JSON.stringify(authUser))
                 setUser(authUser)
@@ -18,7 +18,10 @@ export default function useAuthListner() {
                 setUser(null)
             }
 
-        })
+        }
+
+
+        )
         //here we are returning a function so like const =()=> we return ()=> simply
         return () => listner()
     }, [firebase])

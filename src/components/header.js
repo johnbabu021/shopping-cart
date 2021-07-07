@@ -78,8 +78,8 @@ export default function Header() {
                                 </div>
 
                             ) : (
-                                <div className="right-0">
-                                    <Link to={ROUTES.LOGIN} className="p-2 text-white rounded-md bg-purple-medium ">Login</Link>
+                                <div className="right-0 flex justify-end w-full">
+                                    <Link to={ROUTES.LOGIN} className="p-2 mr-2 text-white rounded-md bg-purple-medium">Login</Link>
                                     <Link to={ROUTES.SIGN_UP} className="p-2 text-white rounded-md bg-purple-medium">Signup</Link>
 
                                 </div>

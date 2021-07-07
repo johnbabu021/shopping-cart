@@ -14,15 +14,21 @@ export default function Content() {
     const isInvalid = name === '' || landMark === '' || address === "" || pin === "" || mobile === ''
 
     const { user: { uid: userId = '' } } = useContext(userContext)
-    useEffect(async () => {
+    useEffect(() => {
 
-        const [result] = await getUserOrderItems(userId)
-        setOrder(result);
+        const getUserOrderDetails = async () => {
+            const [result] = await getUserOrderItems(userId)
+            setOrder(result);
+        }
+
+        if (userId) {
+            getUserOrderDetails()
+        }
         // here cart will be empty usestate
 
 
 
-    }, [])
+    }, [userId])
 
 
     return (
@@ -44,7 +50,7 @@ export default function Content() {
                             mobile={mobile}
                             isInvalid={isInvalid}
                         ></Actions>
-                    </div>)) : (<Skeleton count={4} width={480} height={480}></Skeleton>) : (<img src='/images/addtocart.jpg' className="container mx-auto lg:w-2/5 sm:w-3/5" />)
+                    </div>)) : (<Skeleton count={4} width={480} height={480}></Skeleton>) : (<img src='/images/addtocart.jpg' className="container mx-auto lg:w-2/5 sm:w-3/5" alt="cart" />)
                 }
                 <form className="container mx-auto" method="POST">
                     <div className="container grid justify-between w-6/12 mx-auto">

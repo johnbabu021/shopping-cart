@@ -1,4 +1,3 @@
-import Product from '../components/products/product'
 import { firebase, FieldValue } from '../lib/firebase'
 
 

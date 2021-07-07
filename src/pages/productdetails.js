@@ -14,29 +14,31 @@ export default function ProductDetails() {
     const history = useHistory()
     const { user } = UseUser()
     const { user: { uid: userId = '' } } = useContext(userContext)
-    const [review, setReview] = useState(null)
     const [count, setCount] = useState(1)
     const [size, setSize] = useState(null)
     const [price, setPrice] = useState(null)
     const [cart, setCart] = useState(false)
     const [product, setProduct] = useState(null)
     const [order, setOrder] = useState(false)
-    useEffect(async () => {
+    useEffect(() => {
         document.title = "Product-details"
-        const response = await getProductByProductId(proId)
-        setProduct(response)
-        setPrice(response.price)
-        const [setcart] = await getProductWithUserDetails(proId, userId);
-        setCart(setcart)
+        const productDetailsWithUser = async () => {
+            const response = await getProductByProductId(proId)
+            setProduct(response)
+            setPrice(response.price)
+            const [setcart] = await getProductWithUserDetails(proId, userId);
+            setCart(setcart)
+        }
+        if (proId && userId) {
+            productDetailsWithUser()
+        }
 
 
-
-
-    }, [cart])
+    }, [cart, proId, userId])
     let invalidSize
     const handleCart = async (event) => {
         event.preventDefault()
-        if (size == undefined) {
+        if (size === undefined) {
             invalidSize = true
             alert('please select a size')
             return null
@@ -57,7 +59,7 @@ export default function ProductDetails() {
 
     const handleOrder = async (event) => {
         event.preventDefault()
-        if (size == undefined) {
+        if (size === undefined) {
             invalidSize = true
             alert('please select a size')
             return null
@@ -89,7 +91,7 @@ export default function ProductDetails() {
                 (<div className="grid px-8 pt-24 xl:grid-cols-2 sm:grid-rows-2 ">
 
                     <div className="w-full mt-24 select-none proImage">
-                        <img src={`/images/${product.productName}.jpg`} className="px-10 xl:fixed xl:h-4/5" />
+                        <img src={`/images/${product.productName}.jpg`} className="px-10 xl:fixed xl:h-4/5" alt="product" />
 
                     </div>
 

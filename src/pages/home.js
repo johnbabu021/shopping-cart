@@ -1,10 +1,8 @@
 
 import { useEffect, useState } from 'react'
 import { getAllProductDetails } from '../services/firebase'
-import { useContext } from 'react'
 import Header from '../components/header'
 import Product from '../components/products/product'
-import userContext from '../context/user'
 import Skeleton from 'react-loading-skeleton'
 
 export default function Home() {
@@ -20,7 +18,6 @@ export default function Home() {
         getProducts()
 
     }, [])
-    const { user } = useContext(userContext)
     return (
         <div className="top-0">
 
