@@ -8,9 +8,9 @@ export default function Content() {
     const [cart, setCart] = useState(null)
 
     const { user: { uid: userId = '' } } = useContext(userContext)
-    useEffect( () => {
+    useEffect(async () => {
 
-        const [result] =  getUserCartItems(userId)
+        const [result] = await getUserCartItems(userId)
         setCart(result);
         // here cart will be empty usestate
 
