@@ -8,15 +8,22 @@ export default function Content() {
     const [cart, setCart] = useState(null)
 
     const { user: { uid: userId = '' } } = useContext(userContext)
-    useEffect(async () => {
+    useEffect(() => {
 
-        const [result] = await getUserCartItems(userId)
-        setCart(result);
+        const getUserCartInfo = async () => {
+            const [result] = await getUserCartItems(userId)
+            setCart(result);
+        }
+
+        if (userId) {
+            getUserCartInfo()
+        }
+
         // here cart will be empty usestate
 
 
 
-    }, [])
+    }, [userId])
 
 
     return (
@@ -27,7 +34,7 @@ export default function Content() {
                     cart.map((item) =>
                     (< div key={`${item.proId} - ${item.size}-${Date.now()}-${item.count}`} >
                         <Actions proId={item.proId} size={item.size} count={item.count} price={item.price} name={item.name} cart={cart}></Actions>
-                    </div>)) : (<Skeleton count={4} width={480} height={480}></Skeleton>) : (<img src='/images/addtocart.jpg' className="container mx-auto lg:w-2/5 sm:w-3/5" />)
+                    </div>)) : (<Skeleton count={4} width={480} height={480}></Skeleton>) : (<img src='/images/addtocart.jpg' className="container mx-auto lg:w-2/5 sm:w-3/5" alt="product" />)
                 }
             </div >
         </div>

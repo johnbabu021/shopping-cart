@@ -17,7 +17,7 @@ export default function Header() {
                 <div className="flex h-full max-w-screen-lg md:justify-between md:gap-10 xl:gap-14 sm:gap-14 sm:justify-start">
                     <div className="container mx-auto lg:text-center">
                         <h1 className="items-center justify-center w-10 h-full mx-auto text-right">
-                            <Link to={ROUTES.HOME}>  <img src="/images/logo.png" className=""></img></Link>
+                            <Link to={ROUTES.HOME}>  <img src="/images/logo.png" className="" alt="logo"></img></Link>
                         </h1>
                     </div>
                     {user ? (<h1 className="px-8 m-3 xl:flex xs:hidden xl:ml-24">
@@ -32,7 +32,7 @@ export default function Header() {
                     {user && <div className="justify-between h-full mx-10 mt-4 align-center sm:hidden md:flex lg:flex xs:hidden xl:ml-24">
                         <div className="search-container">
                             <input type="text" name="search" placeholder="Search..." className=" search-input" />
-                            <a href="#" className="search-btn">
+                            <a href="/" className="search-btn">
                                 <i className="fas fa-search text-purple-dark"></i>
                             </a>
                         </div>
