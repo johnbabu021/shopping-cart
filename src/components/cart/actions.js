@@ -5,9 +5,9 @@ import UseUser from "../../hooks/use-user"
 import * as ROUTES from '../../constants/routes'
 
 export default function Actions({ proId, size, count, name, price, cart }) {
-    const proPrice = useState(price / count)
-    const totalPrice = useState(proPrice * count)
-    const proCount = useState(count)
+    const proPrice = price / count
+    const totalPrice = proPrice * count
+    const proCount = count
     const [order, setOrder] = useState(false)
     const history = useHistory()
     const { user } = UseUser()
