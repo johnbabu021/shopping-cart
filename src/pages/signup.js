@@ -4,7 +4,7 @@ import * as ROUTES from '../constants/routes'
 import Header from '../components/header/header'
 import FirebaseContext from "../context/firebase"
 import { doesUserEmailExists } from "../services/firebase"
-
+import '../custom_styles/signup.css'
 
 
 export default function Signup() {
@@ -68,12 +68,13 @@ export default function Signup() {
 
     return (
         <div>
-            <Header className='w-full h-30 '></Header>
+            <Header></Header>
 
 
-            <div className="container flex items-center h-screen mx-auto">
-                <form className="container mx-auto" method="POST" onSubmit={handleSignup}>
-                    <div className="container grid justify-between w-6/12 mx-auto">
+            <div className="grid-center">
+                <form method="POST" onSubmit={handleSignup}>
+
+                    <div className="container grid justify-between">
                         {error && <p className="text-red-primary">{error}</p>}
 
                         <input
@@ -96,19 +97,19 @@ export default function Signup() {
 
                         <button
                             disabled={false}
-                            type="submit" className={`${isInvalid && 'opacity-50'} items-center w-20 p-2 mx-auto font-bold text-white border-transparent rounded-md outline-none bg-purple-medium hover:bg-purple-dark focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50`} >Signup</button>
-                        <div className="flex flex-row justify-center">
-                            <p>Already have an account?</p>
-                            <Link to={ROUTES.LOGIN} className="text-purple-dark">Login here</Link>
+                            type="submit" className={`${isInvalid && 'opacity-50'} submit items-center w-20 p-2 mx-auto font-bold text-white border-transparent rounded-md outline-none bg-purple-medium hover:bg-purple-dark focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50`} >Signup</button>
+                        <div className="flex flex-row justify-center ">
+                            <p className="login-p">have an account?</p>
+                            <Link to={ROUTES.LOGIN} className="text-purple-dark login">Login here</Link>
                         </div>
 
                     </div>
 
                 </form>
 
-
-
             </div>
+
+
         </div>
     )
 }

@@ -38,10 +38,10 @@ export default function Login() {
     return (
 
         <div>
-            <Header className='w-full h-30 '></Header>
+            <Header className='grid w-full h-30 place-items-center '></Header>
             <div className="container flex items-center h-screen mx-auto">
                 <form className="mx-auto" method="POST" onSubmit={handleLogin}>
-                    {error && <p className="text-red-primary">{error}</p>}
+                    {error && <p className="text-red-primary">Incorrect username and password</p>}
                     <div className="container grid justify-between w-6/12 pb-5">
                         <input
                             onChange={({ target }) => { setEmail(target.value) }}

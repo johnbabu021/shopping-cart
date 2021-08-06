@@ -89,7 +89,6 @@ export default function ProductDetails() {
 
                     <div className="w-full mt-24 select-none proImage">
                         <img src={`/images/${product.productName}.jpg`} className="px-10 xl:fixed xl:h-4/5" alt="product" />
-
                     </div>
 
                     <div className="container mx-auto mt-24">

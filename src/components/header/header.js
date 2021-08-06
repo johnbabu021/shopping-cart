@@ -26,7 +26,7 @@ export default function Header() {
     return (
         <header id="header">
 
-            <h1><img className="logo" src="./images/vauld.svg" onClick={() => { history.push(ROUTES.DASHBOARD) }} alt=""></img></h1>
+            <h1><img className="logo" src="./images/vauld.svg" onClick={() => { history.push(ROUTES.DASHBOARD) }} alt=" "></img></h1>
             {user ? (
                 <div className="header-text">
                     <p>Men</p>
@@ -51,7 +51,7 @@ export default function Header() {
 
                     </IconButton>
                     <IconButton>
-                        <FavoriteBorderIcon onclick={() => { history.push(ROUTES.CART) }} />
+                        <FavoriteBorderIcon onClick={() => { history.push(ROUTES.CART) }} />
 
                     </IconButton>
                     <IconButton>
@@ -62,12 +62,13 @@ export default function Header() {
 
                 </div>
             ) : null}
-            <div className="menu-icon" >
-                <IconButton>
-                    <MenuIcon onClick={() => setMenu(!menu)} />
-                </IconButton>
-            </div>
-
+            {user ? (
+                <div className="menu-icon" >
+                    <IconButton>
+                        <MenuIcon onClick={() => setMenu(!menu)} />
+                    </IconButton>
+                </div>
+            ) : null}
             <div className={`menu-right ${menu ? 'show-full' : 'show-none'}`}>
                 <IconButton>
 

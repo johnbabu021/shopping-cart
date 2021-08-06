@@ -23,6 +23,7 @@ body > #header{position:fixed;}
 }
 .logo {
   width: 100px;
+  cursor: pointer;
   height: 50px;
   object-fit: contain;
   min-width:100px;
@@ -45,6 +46,7 @@ body > #header{position:fixed;}
 }
 .flex-center>.MuiSvgIcon-root{
    color: gray;
+   cursor: pointer;
 }
 .flex-center>input{
   background-color: whitesmoke;
@@ -58,6 +60,7 @@ body > #header{position:fixed;}
   display: flex;
   padding-left: 20px;
 justify-content: space-between;
+cursor:pointer;
 
 }
 .header-text >p:nth-child(4){
@@ -74,6 +77,7 @@ justify-content: space-between;
 }
 
 .flex-end>.MuiSvgIcon-root{
+  cursor: pointer;
   color: gray !important;
 font-size: 25px !important;
 }
@@ -131,7 +135,7 @@ color: red;
   text-transform: uppercase;
   align-items:flex-end;
   background-color: white;
-padding-right: 40px;
+padding-right: 30px;
 transition: 0.5s ease-in-out;
 }
 
@@ -141,7 +145,7 @@ min-width: 150px;
 cursor: pointer;
 padding: 20px 0;
 text-align: left;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid rgb(175, 172, 172);
 }
 .show-full{
   transform: translateX(0%);
