@@ -75,7 +75,7 @@ export default function Signup() {
                 <form method="POST" onSubmit={handleSignup}>
 
                     <div className="container grid justify-between">
-                        {error && <p className="text-red-primary">{error}</p>}
+                        {error && <p className="text-red-primary">error occoured</p>}
 
                         <input
                             onChange={({ target }) => { setName(target.value) }}
