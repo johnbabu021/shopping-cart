@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Header from '../components/header'
+import Header from '../components/header/header'
 import Content from '../components/order/content'
 
 export default function Order() {

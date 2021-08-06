@@ -4,7 +4,7 @@ import App from './App';
 import './styles/app.css'
 import FirebaseContext from './context/firebase'
 import { firebase, FieldValue } from './lib/firebase'
-
+import './index.css'
 //a provider value can be passed to its children and also childrens children
 ReactDOM.render(
 

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import * as ROUTES from '../constants/routes'
-import Header from '../components/header'
+import Header from '../components/header/header'
 import FirebaseContext from "../context/firebase"
 import { doesUserEmailExists } from "../services/firebase"
 
@@ -107,7 +107,6 @@ export default function Signup() {
                 </form>
 
 
-                <img src="/images/girls.jpeg" className="w-1/5" alt="girl" />
 
             </div>
         </div>

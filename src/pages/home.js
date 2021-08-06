@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import { getAllProductDetails } from '../services/firebase'
-import Header from '../components/header'
+import Header from '../components/header/header'
 import Product from '../components/products/product'
 import Skeleton from 'react-loading-skeleton'
 

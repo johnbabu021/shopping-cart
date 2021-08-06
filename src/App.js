@@ -35,8 +35,8 @@ function App() {
     //here we are passing the user in an object when may items are in value we can take that by destrcturing that 
     <userContext.Provider value={{ user }}>
       <Router>
-        <Suspense fallback={<img src="./loading.gif" alt="logo" />}>
-          <Switch>
+        <Suspense fallback={<img src="./loading.gif" alt="" />}>
+          <Switch>  
             <IsUserLoggedIn user={user} loggedInPath={ROUTES.HOME} path={ROUTES.LOGIN} exact >
               <Login></Login>
             </IsUserLoggedIn>

@@ -41,8 +41,8 @@ export default function Actions({ proId, size, count, name, price, cart }) {
     }
 
     // const handleDecrement = async () => {
-    //     // count = count - 1
-    //     await firebase.firestore().collection('users').doc(user?.docId).update({
+    // count = count - 1
+    // await firebase.firestore().collection('users').doc(user?.docId).update({
     //         cart: cart ? FieldValue.arrayRemove({ proId, count, price, size, name }) : null
 
     //     })
@@ -64,7 +64,7 @@ export default function Actions({ proId, size, count, name, price, cart }) {
         < div className="grid px-4 mb-10 rounded-md select-none lg:grid-cols-2 h-88 cards max-h-84 ">
             <div className="items-center justify-start sm:flex sm:gap-8 xs:gap-2 xs:grid-row-3">
 
-                <img src={`/images/${name}.jpg`} className="h-40" alt={`${name}`} />
+                <img src={`/images/${name}.jpg`} className="h-40" alt={``} />
                 <p className="items-center">{size}</p>
                 <p className="items-center">{totalPrice}</p>
                 <p className="items-center">{name}</p>

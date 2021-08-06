@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import Skeleton from "react-loading-skeleton"
 import { Link, useHistory, useParams } from "react-router-dom"
-import Header from "../components/header"
+import Header from "../components/header/header"
 import userContext from "../context/user"
 import '../custom_styles/productDetails.css'
 import { firebase, FieldValue } from "../lib/firebase"

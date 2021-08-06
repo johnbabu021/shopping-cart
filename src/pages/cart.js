@@ -1,4 +1,4 @@
-import Header from "../components/header"
+import Header from "../components/header/header"
 import Content from '../components/cart/content'
 import {  useEffect } from "react"
 
