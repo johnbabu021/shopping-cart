@@ -18,15 +18,17 @@ export default function Header() {
     const { user } = useContext(userContext)
     const { firebase } = useContext(FirebaseContext)
     const [menu, setMenu] = useState(false)
+    const [search, setSearch] = useState(false)
+    const [account, setAccount] = useState(false)
     //here we are importing the props as destrctured because we have many values at a single prop
 
     const handleSearch = () => {
-
+        setSearch(true)
     }
     return (
         <header id="header">
 
-            <h1><img className="logo" src="./images/vauld.svg" onClick={() => { history.push(ROUTES.DASHBOARD) }} alt=" "></img></h1>
+            <h1><img className="logo" src="/images/vauld.svg" onClick={() => { history.push(ROUTES.DASHBOARD) }} alt=" "></img></h1>
             {user ? (
                 <div className="header-text">
                     <p>Men</p>
@@ -38,18 +40,23 @@ export default function Header() {
                 </div>
             ) : null}
             {user ? (
-                <div className="flex-center">
+                <div className={`flex-center ${search ? 'add-color' : 'remove-color'}`}>
                     <SearchIcon />
-                    <input placeholder="search products brands and more" onclick={handleSearch} />
+                    <input placeholder="search products brands and more" onMouseDown={handleSearch} className={`${search ? 'add-color' : 'remove-color'}`} onMouseLeave={() => { setSearch(false) }} />
                 </div>
             ) : null}
             {user ? (
                 <div className="flex-end">
-                    <IconButton>
-                        <PersonRoundedIcon />
+                    <div onMouseOver={() => { setAccount(true) }} onMouseLeave={() => { setAccount(false) }} >
 
+                        <IconButton class="account">
+                            <PersonRoundedIcon />
+                            <div className={`${account ? 'account-logout' : "account-none"} default-account`} >
+                                <p onClick={() => { firebase.auth().signOut() }}>logout</p>
+                            </div>
+                        </IconButton>
+                    </div>
 
-                    </IconButton>
                     <IconButton>
                         <FavoriteBorderIcon onClick={() => { history.push(ROUTES.CART) }} />
 
@@ -64,17 +71,17 @@ export default function Header() {
             ) : null}
             {user ? (
                 <div className="menu-icon" >
-                    <IconButton>
-                        <MenuIcon onClick={() => setMenu(!menu)} />
+                    <IconButton onClick={() => setMenu(!menu)}  >
+                        <MenuIcon />
                     </IconButton>
                 </div>
             ) : null}
             <div className={`menu-right ${menu ? 'show-full' : 'show-none'}`}>
-                <IconButton>
+                <IconButton onClick={() => {
+                    setMenu(false)
+                }}>
 
-                    <CloseIcon onClick={() => {
-                        setMenu(false)
-                    }} />
+                    <CloseIcon className="close-icon" />
 
                 </IconButton>
                 <p>Account</p>

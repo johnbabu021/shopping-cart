@@ -39,6 +39,8 @@ export default function ProductDetails() {
         event.preventDefault()
         if (size === null) {
             alert('please select a size')
+
+            ///here we have to get that alert
             return null
         }
         setCart(!cart)

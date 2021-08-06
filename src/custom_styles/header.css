@@ -34,9 +34,16 @@ body > #header{position:fixed;}
   color: black;
 }
 
+.add-color{
+  background-color: white;
+  border: 2px solid gray;
+}
+.remove-color{
+  background-color: whitesmoke;
+}
+
 
 .flex-center{
-  background-color: whitesmoke;
   height: 50px;
   display: flex;
   border-radius: 10px;
@@ -49,7 +56,7 @@ body > #header{position:fixed;}
    cursor: pointer;
 }
 .flex-center>input{
-  background-color: whitesmoke;
+  width: 100%;
   border: none;
   outline: none;
   padding: 5px 0;
@@ -130,7 +137,7 @@ color: red;
   justify-content: flex-start;
   right: 0;
   display: flex;
-  min-width: 200px;
+  min-width: 250px;
   flex-direction: column;
   text-transform: uppercase;
   align-items:flex-end;
@@ -141,6 +148,7 @@ transition: 0.5s ease-in-out;
 
 
 .menu-right>p{
+  margin-right: 50px;
 min-width: 150px;
 cursor: pointer;
 padding: 20px 0;
@@ -152,4 +160,25 @@ text-align: left;
 }
 .show-none{
   transform: translateX(100%);
+}
+
+.account{
+  position:relative;
+  height: 30px;
+}
+
+.account-logout{
+transform: translateY(100%);
+}
+.account-none{
+  display: none;
+transform: translateY(0%);
+}
+.default-account{
+  position: absolute;
+  width: 100px;
+  left: -20px;
+  z-index:999;
+  top:0;
+  background-color: whitesmoke;
 }
