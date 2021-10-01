@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../../custom_styles/product.css'
 import propTypes from 'prop-types'
-import * as ROUTES from '../../constants/routes'
 export default function Product({ productname, productprice, proId, productdescription }) {
 
 
@@ -12,7 +11,7 @@ export default function Product({ productname, productprice, proId, productdescr
             < div className="px-4 rounded-md select-none h-88 cards max-h-84">
                 <div className="items-center pt-4 text-center product-images sm:mx-auto sm:container">
 
-                    <img src={`/images/${productname}.jpg`} className="h-40 mx-auto" />
+                    <img src={`/images/${productname}.jpg`} className="h-40 mx-auto" alt="" />
                 </div>
                 <div className="items-center justify-between pt-3 pb-2 text-center">
                     <p className="items-center">{productname}</p>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import Skeleton from "react-loading-skeleton"
 import { Link, useHistory, useParams } from "react-router-dom"
-import Header from "../components/header"
+import Header from "../components/header/header"
 import userContext from "../context/user"
 import '../custom_styles/productDetails.css'
 import { firebase, FieldValue } from "../lib/firebase"
@@ -14,31 +14,33 @@ export default function ProductDetails() {
     const history = useHistory()
     const { user } = UseUser()
     const { user: { uid: userId = '' } } = useContext(userContext)
-    const [review, setReview] = useState(null)
     const [count, setCount] = useState(1)
     const [size, setSize] = useState(null)
     const [price, setPrice] = useState(null)
     const [cart, setCart] = useState(false)
     const [product, setProduct] = useState(null)
     const [order, setOrder] = useState(false)
-    useEffect(async () => {
+    useEffect(() => {
         document.title = "Product-details"
-        const response = await getProductByProductId(proId)
-        setProduct(response)
-        setPrice(response.price)
-        const [setcart] = await getProductWithUserDetails(proId, userId);
-        setCart(setcart)
+        const productDetailsWithUser = async () => {
+            const response = await getProductByProductId(proId)
+            setProduct(response)
+            setPrice(response.price)
+            const [setcart] = await getProductWithUserDetails(proId, userId);
+            setCart(setcart)
+        }
+        if (proId && userId) {
+            productDetailsWithUser()
+        }
 
 
-
-
-    }, [cart])
-    let invalidSize
+    }, [cart, proId, userId])
     const handleCart = async (event) => {
         event.preventDefault()
-        if (size == undefined) {
-            invalidSize = true
+        if (size === null) {
             alert('please select a size')
+
+            ///here we have to get that alert
             return null
         }
         setCart(!cart)
@@ -57,8 +59,7 @@ export default function ProductDetails() {
 
     const handleOrder = async (event) => {
         event.preventDefault()
-        if (size == undefined) {
-            invalidSize = true
+        if (size === null) {
             alert('please select a size')
             return null
         }
@@ -89,8 +90,7 @@ export default function ProductDetails() {
                 (<div className="grid px-8 pt-24 xl:grid-cols-2 sm:grid-rows-2 ">
 
                     <div className="w-full mt-24 select-none proImage">
-                        <img src={`/images/${product.productName}.jpg`} className="px-10 xl:fixed xl:h-4/5" />
-
+                        <img src={`/images/${product.productName}.jpg`} className="px-10 xl:fixed xl:h-4/5" alt="product" />
                     </div>
 
                     <div className="container mx-auto mt-24">
@@ -141,16 +141,16 @@ export default function ProductDetails() {
                         >{item.size}</button>
                         ))}
 
-                        <div className="grid items-center grid-cols-2 gap-5 mt-8 text-center ">
+                        <div className="grid items-center gap-5 mt-8 text-center sm:grid-cols-2 xs:grid-rows-2">
                             <button
                                 disabled={order}
-                                className={`flex justify-center h-10 gap-3 pt-2 text-center text-white rounded-md w-50 bg-purple-medium ${order && 'opacity-50'}`} onClick={handleOrder}>
+                                className={`flex justify-center xs:h-11 sm:h-10 gap-3 pt-2 text-center text-white rounded-md w-50 bg-purple-medium ${order && 'opacity-50'}`} onClick={handleOrder}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                 </svg>   <p>ADD TO BAG</p>
                             </button>
                             <button
-                                className={`flex justify-center h-10 gap-3 pt-2 text-center border-2 rounded-md w-50 ${cart ? 'cursor-default bg-gray-medium border-2 border-gray-medium' : null}`}
+                                className={`xs:h-11 flex justify-center sm:h-10 gap-3 pt-2 text-center border-2 rounded-md w-50 ${cart ? 'cursor-default bg-gray-medium border-2 border-gray-medium' : null}`}
                                 onClick={handleCart}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import userContext from "../context/user"
-import { getUserByUserId, getUserOrderByUserId, getUserOrderItems } from "../services/firebase"
+import { getUserByUserId, getUserOrderByUserId } from "../services/firebase"
 
 export default function UseUser() {
     const [activerUser, setActiverUser] = useState(null)

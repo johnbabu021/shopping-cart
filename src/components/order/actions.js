@@ -1,17 +1,16 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import FirebaseContext from "../../context/firebase"
 import UseUser from "../../hooks/use-user"
 
 
 
 export default function Actions({ proId, size, count, name, price, order, pin, address, mobile, landmark, username, isInvalid }) {
-    const [proPrice, setProPrice] = useState(price / count)
-    const [totalPrice, setTotalPrice] = useState(proPrice * count)
-    const [proCount, setProCount] = useState(count)
+    const proPrice = price / count
+    const totalPrice = proPrice * count
+    const proCount = count
     const { user, orderCollection } = UseUser()
     const { firebase, FieldValue } = useContext(FirebaseContext)
-    useEffect(async () => {
-    }, [])
+
     const handleDelete = async () => {
         await firebase.firestore().collection('users').doc(user?.docId).update({
             orders: order ? FieldValue.arrayRemove({ proId, count, price, size, name }) : null
@@ -19,9 +18,7 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
         })
         window.location.reload()
     }
-    const invalidCount = count === 1
     const handlePlaceOrder = async (event) => {
-        console.log(orderCollection.docId, 'docid')
 
         await firebase.firestore().collection('orders').doc(orderCollection?.docId).update({
             order: FieldValue.arrayUnion({ proId, count, price, name, size, date: Date.now(), username, pin, address, landmark, mobile })
@@ -42,10 +39,9 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
     return (
 
         < div className="px-4 mb-10 rounded-md select-none lg:grid md:grid-cols-1 h-88 cards max-h-84 sm:grid-cols-1">
-            <div className="flex items-center justify-start gap-8">
+            <div className="items-center justify-start gap-8 sm:flex xs:grid-rows-3">
 
-                <img src={`/images/${name}.jpg`} className="h-40" />
-                <p className="items-center">{name}</p>
+                <img src={`/images/${name}.jpg`} className="h-40" alt="" />
                 <p className="items-center">{size}</p>
                 <p className="items-center">{totalPrice}</p>
                 <p className="items-center">{name}</p>
@@ -59,7 +55,7 @@ export default function Actions({ proId, size, count, name, price, order, pin, a
 
 
                 </div>
-                <div className="flex items-center gap-5 md:justify-center">
+                <div className="grid items-center gap-5 sm:flex md:justify-center xs:grid-rows-2">
 
                     <button
                         disabled={isInvalid}

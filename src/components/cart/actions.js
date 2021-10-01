@@ -1,20 +1,19 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import FirebaseContext from "../../context/firebase"
 import UseUser from "../../hooks/use-user"
 import * as ROUTES from '../../constants/routes'
 
 export default function Actions({ proId, size, count, name, price, cart }) {
-    const [proPrice, setProPrice] = useState(price / count)
-    const [totalPrice, setTotalPrice] = useState(proPrice * count)
-    const [proCount, setProCount] = useState(count)
+    const proPrice = price / count
+    const totalPrice = proPrice * count
+    const proCount = count
     const [order, setOrder] = useState(false)
     const history = useHistory()
     const { user } = UseUser()
 
     const { firebase, FieldValue } = useContext(FirebaseContext)
-    useEffect(async () => {
-    }, [])
+
     const handleDelete = async (event) => {
         await firebase.firestore().collection('users').doc(user?.docId).update({
             cart: cart ? FieldValue.arrayRemove({ proId, count, price, size, name }) : null
@@ -42,8 +41,8 @@ export default function Actions({ proId, size, count, name, price, cart }) {
     }
 
     // const handleDecrement = async () => {
-    //     // count = count - 1
-    //     await firebase.firestore().collection('users').doc(user?.docId).update({
+    // count = count - 1
+    // await firebase.firestore().collection('users').doc(user?.docId).update({
     //         cart: cart ? FieldValue.arrayRemove({ proId, count, price, size, name }) : null
 
     //     })
@@ -62,11 +61,10 @@ export default function Actions({ proId, size, count, name, price, cart }) {
 
     return (
 
-        < div className="grid px-4 mb-10 rounded-md select-none lg:grid-cols-2 h-88 cards max-h-84 sm:gir-cols-1">
-            <div className="flex items-center justify-start gap-8">
+        < div className="grid px-4 mb-10 rounded-md select-none lg:grid-cols-2 h-88 cards max-h-84 ">
+            <div className="items-center justify-start sm:flex sm:gap-8 xs:gap-2 xs:grid-row-3">
 
-                <img src={`/images/${name}.jpg`} className="h-40" />
-                <p className="items-center">{name}</p>
+                <img src={`/images/${name}.jpg`} className="h-40" alt={``} />
                 <p className="items-center">{size}</p>
                 <p className="items-center">{totalPrice}</p>
                 <p className="items-center">{name}</p>
@@ -80,9 +78,9 @@ export default function Actions({ proId, size, count, name, price, cart }) {
 
 
                 </div>
-                <div className="flex items-center gap-5 md:justify-center">
+                <div className="grid items-center gap-5 sm:flex md:justify-center xs:grid-rows-2">
 
-                    <button disabled={order} className={`text-center border-2 text-purple-medium border-gray-medium ${order && 'opacity-10'}`} onClick={handleOrder}>MOVE TO BAG</button>
+                    <button disabled={order} className={` text-center border-2 text-purple-medium border-gray-medium ${order && 'opacity-10'}`} onClick={handleOrder}>MOVE TO BAG</button>
                     <button className="border-2 text-red-primary border-gray-medium " onClick={handleDelete}>DELETE</button>
                 </div>
             </div>
