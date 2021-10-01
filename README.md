@@ -12,7 +12,7 @@ $ npm start
  * Fork this repository
  * clone your local repository
  * Read the issues
- 
+ ## left a star behind
 
 # sit relax code
 ## create a pull request
