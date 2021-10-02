@@ -74,36 +74,38 @@ export default function Signup() {
             <div className="grid-center">
                 <form method="POST" onSubmit={handleSignup}>
 
-                    <div className="container grid justify-between">
-                        {error && <p className="text-red-primary">error occoured</p>}
+                    <div className="container grid justify-between p-7"  style={{backgroundImage:"radial-gradient(#5c7eaf 15%, rgb(28, 74, 143) 45%, rgb(69, 89, 122) 120%)", borderRadius:"20px", marginTop:"50px"}}>
+                        {error && <p className="text-red-primary">Error Occoured</p>}
 
                         <input
                             onChange={({ target }) => { setName(target.value) }}
-                            type="text" placeholder="enter your name"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            type="text" placeholder="Enter Your Name"
+                            className=" inputcover h-10 mb-5 text-center border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
                         <input
                             onChange={({ target }) => { setEmail(target.value) }}
-                            type="email" placeholder="enter your email address"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            type="email" placeholder="Enter Your Email Address"
+                            className="inputcover h-10 mb-5 text-center border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
                         <input
                             //here we not need to return setstate so {} is used i think
                             onChange={({ target }) => { setMobile(target.value) }}
-                            type="tel" placeholder="enter phone number"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            type="tel" placeholder="Enter Phone Number"
+                            className="inputcover h-10 mb-5 text-center border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
                         <input
                             onChange={({ target }) => { setPassword(target.value) }}
-                            type="password" placeholder="enter your password"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            type="password" placeholder="Enter Password"
+                            className="inputcover h-10 mb-5 text-center border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
 
                         <button
                             disabled={false}
-                            type="submit" className={`${isInvalid && 'opacity-50'} submit items-center w-20 p-2 mx-auto font-bold text-white border-transparent rounded-md outline-none bg-purple-medium hover:bg-purple-dark focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50`} >Signup</button>
-                        <div className="flex flex-row justify-center ">
-                            <p className="login-p">have an account?</p>
-                            <Link to={ROUTES.LOGIN} className="text-purple-dark login">Login here</Link>
-                        </div>
+                            type="submit" className={`${isInvalid && 'opacity-80'} submit items-center p-3 mx-auto font-bold text-white border-transparent rounded-md outline-none bg-purple-medium hover:bg-purple-dark focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50`} style={{backgroundColor:"#092147",fontSize:"1.3rem"}}>Signup</button>
+                
 
                     </div>
+
+                    <div className="flex flex-row justify-center pt-7">
+                            <p className="login-p">Already Have an Account? </p>
+                            <Link to={ROUTES.LOGIN} className="text-purple-dark login"> Login here</Link>
+                        </div>
 
                 </form>
 

@@ -3,3 +3,8 @@
     scroll-behavior: smooth;
 }
 
+.inputcover {
+    width:50vw;
+    height: 8vh;
+    border-radius:20px;
+}
