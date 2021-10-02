@@ -19,4 +19,4 @@ $ npm start
 
 
 ## issue
- * read the bug and feature page in .github/issuetemplates
+ * read the bug and feature page in https://github.com/johnbabu021/shopping-cart/tree/updation/.github/ISSUE_TEMPLATE
