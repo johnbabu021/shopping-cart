@@ -17,6 +17,7 @@ export default function Login() {
     }, [])
     const handleLogin = async (event) => {
         event.preventDefault()
+		
         try {
 
             await firebase.auth().signInWithEmailAndPassword(email, password)
@@ -53,8 +54,7 @@ export default function Login() {
                         <button
                             disabled={isInvalid}
                             type="submit"
-                            className={`items-center w-20 p-2 mx-auto font-bold text-white border-transparent rounded-md outline-none bg-purple-medium ${isInvalid ? 'opacity-50 cursor-not-allowed' : 'hover:bg-purple-dark focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50'} `} >Login
-						</button>
+                            className={`items-center w-20 p-2 mx-auto font-bold text-white border-transparent rounded-md outline-none bg-purple-medium ${isInvalid ? 'opacity-50 cursor-not-allowed' : 'hover:bg-purple-dark focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50'} `} >Login</button>
                     </div>
                     <div className="flex flex-row justify-center">
                         <p>Dont have an account?&nbsp;</p>
