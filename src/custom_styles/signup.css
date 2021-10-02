@@ -1,6 +1,5 @@
-.grid-center{
-
-    display: grid;
-    place-items: center;
-    height: 100vh;
+.grid-center {
+	display: grid;
+	place-items: center;
+	height: 100vh;
 }

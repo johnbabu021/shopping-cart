@@ -1,16 +1,12 @@
-.skeleton{
-  
-    display: flex;
-justify-content: space-between;
-align-items: center;    
-    }
+.skeleton {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
-
-@media (max-width:900px){
-    .skeleton{
-  
-        display: flex;
-        flex-direction: column;
-        
-        }
+@media (max-width: 900px) {
+	.skeleton {
+		display: flex;
+		flex-direction: column;
+	}
 }
