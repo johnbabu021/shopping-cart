@@ -5,7 +5,7 @@ $ npm start
 ```
 
 ## how the website looks
-![Capture](https://user-images.githubusercontent.com/89125422/135652986-a5b1500e-212a-46fb-82bc-fcbd2d514ec1.PNG)
+![image](https://user-images.githubusercontent.com/58719884/135717495-73bc7169-5594-4379-8067-1ed90e0b1cd3.png)
 
 
 ## contributing
@@ -16,3 +16,7 @@ $ npm start
 
 # sit relax code
 ## create a pull request
+
+
+## issue
+ * read the bug and feature page in .github/issuetemplates
