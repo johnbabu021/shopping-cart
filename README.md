@@ -20,3 +20,10 @@ $ npm start
 
 ## issue
  * read the bug and feature page in https://github.com/johnbabu021/shopping-cart/tree/updation/.github/ISSUE_TEMPLATE
+
+
+
+
+## hacktoberfest
+
+![Hacktoberfest_x_Spotify_2021_Final_Blog-Twitter-Discord_B](https://user-images.githubusercontent.com/58719884/135654867-afa18ae2-f239-4a0a-b1fd-6df7d92b8dac.png)
