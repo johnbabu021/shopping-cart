@@ -11,4 +11,11 @@ $ npm start
  * Fork this repository
  * clone your local repository
  * Read the issues
+
+
+## rules
+
+
  ## left a star behind
+
+
