@@ -16,3 +16,7 @@ $ npm start
 
 # sit relax code
 ## create a pull request
+
+
+## issue
+ * read the bug and feature page in .github/issuetemplates
