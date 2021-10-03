@@ -1,15 +1,18 @@
 import { useContext } from "react"
 import FirebaseContext from "../../context/firebase"
+import { useStore } from "../../context/GlobalState"
 import UseUser from "../../hooks/use-user"
 
 
 
-export default function Actions({ proId, size, count, name, price, order, pin, address, mobile, landmark, username, isInvalid }) {
+export default function Actions(props) {
     const proPrice = price / count
+    const { proId, size, count, name, price, pin, address, mobile, landmark, username, isInvalid } = props
     const totalPrice = proPrice * count
     const proCount = count
     const { user, orderCollection } = UseUser()
     const { firebase, FieldValue } = useContext(FirebaseContext)
+    const { order } = useStore()
 
     const handleDelete = async () => {
         await firebase.firestore().collection('users').doc(user?.docId).update({
