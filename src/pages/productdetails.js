@@ -20,8 +20,16 @@ export default function ProductDetails() {
     const [cart, setCart] = useState(false)
     const [product, setProduct] = useState(null)
     const [order, setOrder] = useState(false)
+    
+      useEffect(() => {
+    if (product?.productName) {
+      document.title = product.productName;
+    } else {
+      document.title = "Product-details";
+    }
+  }, [product]);
+    
     useEffect(() => {
-        document.title = "Product-details"
         const productDetailsWithUser = async () => {
             const response = await getProductByProductId(proId)
             setProduct(response)
