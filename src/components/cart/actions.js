@@ -61,7 +61,7 @@ export default function Actions({ proId, size, count, name, price, cart }) {
 
     return (
 
-        < div className="grid px-4 mb-10 rounded-md select-none lg:grid-cols-2 h-88 cards max-h-84 ">
+        < div className="grid px-4 mb-10 rounded-md select-none lg:grid-cols-2 h-88 cards max-h-84 dark:bg-gray-cardDark dark:text-white">
             <div className="items-center justify-start sm:flex sm:gap-8 xs:gap-2 xs:grid-row-3">
 
                 <img src={`/images/${name}.jpg`} className="h-40" alt={``} />

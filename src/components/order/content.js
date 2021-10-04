@@ -58,25 +58,25 @@ export default function Content() {
                         <input
                             onChange={({ target }) => { setName(target.value) }}
                             type="text" placeholder="enter your name"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark" />
                         <input
                             onChange={({ target }) => { setAddress(target.value) }}
                             type="text" placeholder="enter your address"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark" />
                         <input
                             //here we not need to return setstate so {} is used i think
                             onChange={({ target }) => { setMobile(target.value) }}
                             type="tel" placeholder="enter phone number"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark" />
                         <input
                             onChange={({ target }) => { setLandMark(target.value) }}
                             type="text" placeholder="enter landmark"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark" />
 
                         <input
                             onChange={({ target }) => { setPin(target.value) }}
                             type="text" placeholder="enter pin"
-                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark" />
 
 
 

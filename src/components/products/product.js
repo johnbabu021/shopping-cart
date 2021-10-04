@@ -8,12 +8,12 @@ export default function Product({ productname, productprice, proId, productdescr
         //flex items-start pt-20 ml-5 w-4/4 
 
         <Link to={`product-details/${proId}`}>
-            < div className="px-4 rounded-md select-none h-88 cards max-h-84">
+            < div className="px-4 rounded-md select-none h-88 cards max-h-84 dark:bg-gray-cardDark">
                 <div className="items-center pt-4 text-center product-images sm:mx-auto sm:container">
 
                     <img src={`/images/${productname}.jpg`} className="h-40 mx-auto" alt="" />
                 </div>
-                <div className="items-center justify-between pt-3 pb-2 text-center">
+                <div className="items-center justify-between pt-3 pb-2 text-center dark:text-white">
                     <p className="items-center">{productname}</p>
                     <p className="items-center">{'\u20B9'} {productprice}</p>
                     <p className="items-center">{productdescription}</p>

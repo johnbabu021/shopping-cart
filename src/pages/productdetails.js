@@ -85,7 +85,7 @@ export default function ProductDetails() {
 
 
     return (
-        <div>
+        <div className="dark:bg-gray-bgDark">
             <Header></Header>
 
             {!product ? (
@@ -104,7 +104,7 @@ export default function ProductDetails() {
                     <div className="container mx-auto mt-24">
 
 
-                        <div className="grid items-center gap-4 border-b border-gray-medium">
+                        <div className="grid items-center gap-4 border-b border-gray-medium dark:text-white">
 
                             <h1 className="font-bold">{product.productName}</h1>
                             <p className="font-bold text-gray-medium">{product.description}</p>
@@ -126,7 +126,7 @@ export default function ProductDetails() {
                             <h1 className="text-xl"> {'\u20B9'} {product.price}</h1>
                             <p className="text-purple-medium">Inclusive of all taxes</p>
                         </div>
-                        <div className="flex items-center justify-between mb-5 w-72">
+                        <div className="flex items-center justify-between mb-5 w-72 dark:text-white">
                             <h1 className="pt-4 font-bold">Select Size</h1>
                             <Link to="/size chart" className="pt-4 text-purple-medium">size chart</Link>
                             <div className="mt-4 bg-white border-none outline-none text-purple-medium max-h-10">
@@ -142,7 +142,7 @@ export default function ProductDetails() {
                             </div>
                         </div>
 
-                        {product.size.map((item) => (<button key={item.size} className={`p-3 m-2 text-sm border-2 rounded-full   ${size === item.size ? 'border-purple-end text-purple-end' : 'border-gray-medium'} hover:border-purple-end `}
+                        {product.size.map((item) => (<button key={item.size} className={`p-3 m-2 text-sm border-2 rounded-full dark:text-white   ${size === item.size ? 'border-purple-end text-purple-end' : 'border-gray-medium'} hover:border-purple-end `}
 
                             value={item.size}
                             onClick={() => setSize(item.size)}
@@ -158,16 +158,16 @@ export default function ProductDetails() {
                                 </svg>   <p>ADD TO BAG</p>
                             </button>
                             <button
-                                className={`xs:h-11 flex justify-center sm:h-10 gap-3 pt-2 text-center border-2 rounded-md w-50 ${cart ? 'cursor-default bg-gray-medium border-2 border-gray-medium' : null}`}
+                                className={`xs:h-11 flex justify-center sm:h-10 gap-3 pt-2 text-center border-2 rounded-md w-50 dark:text-white ${cart ? 'cursor-default bg-gray-medium border-2 border-gray-medium' : null}`}
                                 onClick={handleCart}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className={`w-6 h-6 ${cart ? 'fill-red text-red-primary disabled' : 'text-black'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    className={`w-6 h-6 ${cart ? 'fill-red text-red-primary disabled' : 'text-black dark:text-white'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                                 </svg>
-                                <p className={`${cart ? 'text-white' : 'text-black'}`}>{cart ? `ADDED` : `ADD TO CART`}</p></button>
+                                <p className={`${cart ? 'text-white' : 'text-black dark:text-white'}`}>{cart ? `ADDED` : `ADD TO CART`}</p></button>
 
                         </div>
                     </div>

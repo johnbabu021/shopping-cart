@@ -19,7 +19,7 @@ export default function Home() {
 
     }, [])
     return (
-        <div className="top-0">
+        <div className="top-0 dark:bg-gray-bgDark md:h-screen">
 
             <Header            //here we are passing the user in {} because of javascript  if it is not used then it should be a string
             />

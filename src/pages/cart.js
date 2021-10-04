@@ -13,9 +13,9 @@ export default function Cart() {
 
     return (
 
-        <div>
+        <div className="dark:bg-gray-bgDark">
             <Header />
-            <div className="container w-full pt-24 mx-auto">
+            <div className="container w-full pt-24 mx-auto h-screen">
                 {/* <button className="mb-16 bg-white border-2 text-red-primary border-gray-medium" onClick={handleDeleteAll}>DELETE ALL ITEMS</button> */}
 
                 <Content />

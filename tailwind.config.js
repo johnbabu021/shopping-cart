@@ -2,6 +2,7 @@ module.exports = {
     future: {
         removeDeprecatedGapUtilities: true
     },
+    darkMode: 'class',
     theme: {
         fill: (theme) => ({
             purple: theme('colors.purple.medium'),
@@ -14,6 +15,8 @@ module.exports = {
             gray: {
                 medium: "#808080",
                 back: '#f7fcfc',
+                bgDark: '#121212',
+                cardDark: '#1E1E1E',
 
             },
             blue: {

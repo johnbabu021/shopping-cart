@@ -37,7 +37,7 @@ export default function Login() {
 
     return (
 
-        <div>
+        <div className="dark:bg-gray-bgDark">
             <Header className='grid w-full h-30 place-items-center '></Header>
             <div className="container flex items-center h-screen mx-auto">
                 <form className="mx-auto" method="POST" onSubmit={handleLogin}>
@@ -56,7 +56,7 @@ export default function Login() {
                             type="submit"
                             className={`items-center w-20 p-2 mx-auto font-bold text-white border-transparent rounded-md outline-none bg-purple-medium ${isInvalid ? 'opacity-50 cursor-not-allowed' : 'hover:bg-purple-dark focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50'} `} >Login</button>
                     </div>
-                    <div className="flex flex-row justify-center">
+                    <div className="flex flex-row justify-center dark:text-white">
                         <p>Dont have an account?&nbsp;</p>
                         <Link to={ROUTES.SIGN_UP} className="text-purple-medium">Signup</Link>
                     </div>
