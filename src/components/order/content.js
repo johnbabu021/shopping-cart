@@ -34,6 +34,8 @@ export default function Content() {
       getUserOrderDetails();
     }
     // here cart will be empty usestate
+
+    // eslint-disable-next-line
   }, [userId]);
 
   return (

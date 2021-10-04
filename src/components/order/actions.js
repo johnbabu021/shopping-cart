@@ -6,8 +6,8 @@ import UseUser from "../../hooks/use-user"
 
 
 export default function Actions(props) {
-    const proPrice = price / count
     const { proId, size, count, name, price, pin, address, mobile, landmark, username, isInvalid } = props
+    const proPrice = price / count
     const totalPrice = proPrice * count
     const proCount = count
     const { user, orderCollection } = UseUser()

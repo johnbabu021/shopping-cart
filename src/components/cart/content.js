@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useStore } from "../../context/GlobalState";
 import getUserCartItems from "../../services/firebase";
@@ -18,8 +18,9 @@ export default function Content() {
     if (userId) {
       getUserCartInfo();
     }
-
     // here cart will be empty in store
+
+    // eslint-disable-next-line
   }, [userId]);
 
   return (
