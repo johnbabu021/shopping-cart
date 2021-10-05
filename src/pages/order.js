@@ -15,7 +15,7 @@ export default function Order() {
             <Header />
 
 
-            <div className="container w-full pt-24 mx-auto  md:h-screen">
+            <div className="container w-full pt-24 mx-auto h-screen">
 
                 <Content></Content>
             </div>

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Header from "../components/header/header";
 import userContext from "../context/user";
@@ -11,6 +11,7 @@ import {
   getProductWithUserDetails,
 } from "../services/firebase";
 import * as ROUTES from "../constants/routes";
+import useDarkMode from "../hooks/useDarkMode";
 export default function ProductDetails() {
   //destrcturing the element params is like /pd/pid
   const { proId } = useParams();
@@ -25,6 +26,7 @@ export default function ProductDetails() {
   const [cart, setCart] = useState(false);
   const [product, setProduct] = useState(null);
   const [order, setOrder] = useState(false);
+  const [colorTheme] = useDarkMode();
 
   useEffect(() => {
     if (product?.productName) {
@@ -108,17 +110,33 @@ export default function ProductDetails() {
 
   return (
     <div className="dark:bg-gray-bgDark">
+      
       <Header></Header>
 
       {!product ? (
-        <>
+        <div className="h-screen">
+          {colorTheme === "dark"? (
+            <Skeleton
+            count={1}
+            height={800}
+            width={800}
+            className="px-8 mx-8"
+          ></Skeleton>
+          ):(
+            <SkeletonTheme
+            className="skeleton"
+            color="#1E1E1E"
+            highlightColor="#121212"
+          >
           <Skeleton
             count={1}
             height={800}
             width={800}
             className="px-8 mx-8"
           ></Skeleton>
-        </>
+          </SkeletonTheme>
+          )}
+        </div>
       ) : (
         <div className="grid px-8 pt-24 xl:grid-cols-2 sm:grid-rows-2 ">
           <div className="w-full mt-24 select-none proImage">
@@ -160,7 +178,7 @@ export default function ProductDetails() {
               </div>
             </div>
             <div className="grid gap-3">
-              <h1 className="text-xl">
+              <h1 className="text-xl dark:text-white">
                 {" "}
                 {"\u20B9"} {product.price}
               </h1>
@@ -171,9 +189,9 @@ export default function ProductDetails() {
               <Link to="/size chart" className="pt-4 text-purple-medium">
                 size chart
               </Link>
-              <div className="mt-4 bg-white border-none outline-none text-purple-medium max-h-10">
+              <div className="mt-4 bg-white border-none outline-none text-purple-medium max-h-10 dark:border-white dark:bg-gray-bgDark">
                 Qty{" "}
-                <select onChange={({ target }) => setCount(target.value)}>
+                <select onChange={({ target }) => setCount(target.value)} className="dark:bg-gray-bgDark">
                   <option value={1}>1</option>
                   <option value={2}>2</option>
                   <option value={3}>3</option>

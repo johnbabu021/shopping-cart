@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import { useStore } from "../../context/GlobalState";
+import useDarkMode from "../../hooks/useDarkMode";
 import getUserCartItems from "../../services/firebase";
 import Actions from "./actions";
 
 export default function Content() {
+  const [colorTheme] = useDarkMode();
   const {
     user: { uid: userId = "" },
     getUserCart,
@@ -42,7 +44,27 @@ export default function Content() {
               </div>
             ))
           ) : (
-            <Skeleton count={4} width={480} height={480}></Skeleton>
+            colorTheme === "dark"? (
+              <Skeleton
+              count={1}
+              height={800}
+              width={800}
+              className="px-8 mx-8"
+            ></Skeleton>
+            ):(
+              <SkeletonTheme
+              className="skeleton"
+              color="#1E1E1E"
+              highlightColor="#121212"
+            >
+            <Skeleton
+              count={1}
+              height={800}
+              width={800}
+              className="px-8 mx-8"
+            ></Skeleton>
+            </SkeletonTheme>
+            )
           )
         ) : (
           <img

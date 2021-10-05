@@ -46,11 +46,11 @@ export default function Login() {
                         <input
                             onChange={({ target }) => { setEmail(target.value); setError(''); }}
                             type="email" placeholder="Email Address"
-                            className="form-control text-center h-10 mb-5 px-5 border border-white rounded focus:outline-none focus:ring-2 focus:ring-purple-medium focus:border-transparent" />
+                            className="form-control text-center h-10 mb-5 px-5 border border-white rounded focus:outline-none focus:ring-2 focus:ring-purple-medium focus:border-transparent dark:bg-gray-bgDark dark:border-gray-bgDark dark:text-white" />
                         <input
                             onChange={({ target }) => { setPassword(target.value); setError(''); }}
                             type="password" placeholder="Password"
-                            className="form-control text-center h-10 mb-5 px-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent" />
+                            className="form-control text-center h-10 mb-5 px-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:bg-gray-bgDark dark:border-gray-bgDark dark:text-white" />
                         <button
                             disabled={isInvalid}
                             type="submit"

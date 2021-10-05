@@ -83,8 +83,8 @@ export default function Header() {
                 </div>
             ) : null}
             {user ? (
-                <div className="menu-icon dark:bg-white" >
-                    <IconButton onClick={() => setMenu(!menu)}  >
+                <div className="menu-icon" >
+                    <IconButton onClick={() => setMenu(!menu)} className="dark:text-white" >
                         <MenuIcon />
                     </IconButton>
                 </div>
