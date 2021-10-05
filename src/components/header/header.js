@@ -4,7 +4,7 @@ import * as ROUTES from '../../constants/routes'
 import '../../javascript/header'
 import { useContext } from "react"
 import FirebaseContext from "../../context/firebase"
-import userContext from "../../context/user"
+// import userContext from "../../context/user"
 import SearchIcon from '@material-ui/icons/Search';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -13,10 +13,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { IconButton } from "@material-ui/core"
 import CloseIcon from '@material-ui/icons/Close';
 import { useState } from "react"
+import { useStore } from "../../context/GlobalState"
 import useDarkMode from "../../hooks/useDarkMode"
 export default function Header() {
     const history = useHistory()
-    const { user } = useContext(userContext)
+    const { user } = useStore()
     const { firebase } = useContext(FirebaseContext)
     const [menu, setMenu] = useState(false)
     const [search, setSearch] = useState(false)
