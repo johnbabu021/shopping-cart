@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Header from "../components/header/header";
+import userContext from "../context/user";
 import "../custom_styles/productDetails.css";
 import { firebase, FieldValue } from "../lib/firebase";
 import UseUser from "../hooks/use-user";
@@ -10,7 +11,6 @@ import {
   getProductWithUserDetails,
 } from "../services/firebase";
 import * as ROUTES from "../constants/routes";
-import { useStore } from "../context/GlobalState";
 export default function ProductDetails() {
   //destrcturing the element params is like /pd/pid
   const { proId } = useParams();
@@ -18,7 +18,7 @@ export default function ProductDetails() {
   const { user } = UseUser();
   const {
     user: { uid: userId = "" },
-  } = useStore();
+  } = useContext(userContext);
   const [count, setCount] = useState(1);
   const [size, setSize] = useState(null);
   const [price, setPrice] = useState(null);
