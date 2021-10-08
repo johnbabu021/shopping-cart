@@ -5,7 +5,6 @@ body > #header{position:fixed;}
     position: fixed;
     z-index:9000;
     overflow: hidden;
-    background: #fff;
     align-items: center;
     width: 100vw;
     height: 80px;
@@ -14,11 +13,17 @@ body > #header{position:fixed;}
     padding: 10px 0;
     display: flex;
     transition: all 0.15s linear;
+  }
+  
+  
+  #header.active {
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);   
 }
 
-#header.active {
-     box-shadow: 0 0 10px rgba(0,0,0,0.4);   
+.header {
+  background: #fff;
 }
+
 .logo {
   width: 100px;
   cursor: pointer;

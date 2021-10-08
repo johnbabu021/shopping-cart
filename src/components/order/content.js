@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import { useStore } from "../../context/GlobalState";
+import useDarkMode from "../../hooks/useDarkMode";
 import { getUserOrderItems } from "../../services/firebase";
 import Actions from "./actions";
 
@@ -10,6 +11,7 @@ export default function Content() {
   const [address, setAddress] = useState(null);
   const [pin, setPin] = useState(null);
   const [mobile, setMobile] = useState(null);
+  const [colorTheme] = useDarkMode();
   //   const [order, setOrder] = useState(null);
   const isInvalid =
     name === "" ||
@@ -63,7 +65,27 @@ export default function Content() {
               </div>
             ))
           ) : (
-            <Skeleton count={4} width={480} height={480}></Skeleton>
+            colorTheme === "dark"? (
+              <Skeleton
+              count={1}
+              height={800}
+              width={800}
+              className="px-8 mx-8"
+            ></Skeleton>
+            ):(
+              <SkeletonTheme
+              className="skeleton"
+              color="#1E1E1E"
+              highlightColor="#121212"
+            >
+            <Skeleton
+              count={1}
+              height={800}
+              width={800}
+              className="px-8 mx-8"
+            ></Skeleton>
+            </SkeletonTheme>
+            )
           )
         ) : (
           <img
@@ -80,7 +102,7 @@ export default function Content() {
               }}
               type="text"
               placeholder="enter your name"
-              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent"
+              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark"
             />
             <input
               onChange={({ target }) => {
@@ -88,7 +110,7 @@ export default function Content() {
               }}
               type="text"
               placeholder="enter your address"
-              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent"
+              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark"
             />
             <input
               //here we not need to return setstate so {} is used i think
@@ -97,7 +119,7 @@ export default function Content() {
               }}
               type="tel"
               placeholder="enter phone number"
-              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent"
+              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark"
             />
             <input
               onChange={({ target }) => {
@@ -105,7 +127,7 @@ export default function Content() {
               }}
               type="text"
               placeholder="enter landmark"
-              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent"
+              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark"
             />
 
             <input
@@ -114,7 +136,7 @@ export default function Content() {
               }}
               type="text"
               placeholder="enter pin"
-              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent"
+              className="h-10 mb-5 border border-white rounded focus:ring-2 focus:ring-purple-medium focus:outline-none focus:ring-purple-600 focus:border-transparent dark:text-white dark:focus:text-white dark:bg-gray-bgDark dark:border-gray-bgDark"
             />
           </div>
         </form>

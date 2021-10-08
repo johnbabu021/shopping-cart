@@ -10,12 +10,12 @@ export default function Order() {
 
     return (
 
-        <div>
+        <div className="dark:bg-gray-bgDark">
 
             <Header />
 
 
-            <div className="container w-full pt-24 mx-auto">
+            <div className="container w-full pt-24 mx-auto h-screen">
 
                 <Content></Content>
             </div>

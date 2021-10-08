@@ -41,7 +41,7 @@ export default function Actions(props) {
 
     return (
 
-        < div className="px-4 mb-10 rounded-md select-none lg:grid md:grid-cols-1 h-88 cards max-h-84 sm:grid-cols-1">
+        < div className="px-4 mb-10 rounded-md select-none lg:grid md:grid-cols-1 h-88 cards max-h-84 sm:grid-cols-1 dark:bg-gray-cardDark dark:text-white">
             <div className="items-center justify-start gap-8 sm:flex xs:grid-rows-3">
 
                 <img src={`/images/${name}.jpg`} className="h-40" alt="" />

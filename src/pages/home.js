@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react'
 import { getAllProductDetails } from '../services/firebase'
 import Header from '../components/header/header'
 import Product from '../components/products/product'
-import Skeleton from 'react-loading-skeleton'
+import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import '../custom_styles/home.css'
+import useDarkMode from '../hooks/useDarkMode'
 export default function Home() {
     const [product, setProduct] = useState(null)
+    const [colorTheme] = useDarkMode();
     useEffect(() => {
         document.title = "Dashboard"
         async function getProducts() {
@@ -19,7 +21,7 @@ export default function Home() {
 
     }, [])
     return (
-        <div className="top-0">
+        <div className="top-0 dark:bg-gray-bgDark md:h-screen">
 
             <Header            //here we are passing the user in {} because of javascript  if it is not used then it should be a string
             />
@@ -28,7 +30,27 @@ export default function Home() {
                 {!product ? (
                     <div className="grid grid-cols-4 gap-5 skeleton">
                         {[...new Array(2)].map((_, index) => (
-                            <Skeleton key={index} count={1} height={360} width={480} className="skeleton"></Skeleton>
+                            colorTheme === "dark"? (
+                                <Skeleton
+                                count={1}
+                                height={800}
+                                width={800}
+                                className="px-8 mx-8"
+                              ></Skeleton>
+                              ):(
+                                <SkeletonTheme
+                                className="skeleton"
+                                color="#1E1E1E"
+                                highlightColor="#121212"
+                              >
+                              <Skeleton
+                                count={1}
+                                height={800}
+                                width={800}
+                                className="px-8 mx-8"
+                              ></Skeleton>
+                              </SkeletonTheme>
+                              )
 
                         ))}
                     </div>)

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import { Link, useHistory, useParams } from "react-router-dom";
 import Header from "../components/header/header";
 import userContext from "../context/user";
@@ -11,6 +11,7 @@ import {
   getProductWithUserDetails,
 } from "../services/firebase";
 import * as ROUTES from "../constants/routes";
+import useDarkMode from "../hooks/useDarkMode";
 export default function ProductDetails() {
   //destrcturing the element params is like /pd/pid
   const { proId } = useParams();
@@ -25,6 +26,7 @@ export default function ProductDetails() {
   const [cart, setCart] = useState(false);
   const [product, setProduct] = useState(null);
   const [order, setOrder] = useState(false);
+  const [colorTheme] = useDarkMode();
 
   useEffect(() => {
     if (product?.productName) {
@@ -107,18 +109,34 @@ export default function ProductDetails() {
   };
 
   return (
-    <div>
+    <div className="dark:bg-gray-bgDark">
+      
       <Header></Header>
 
       {!product ? (
-        <>
+        <div className="h-screen">
+          {colorTheme === "dark"? (
+            <Skeleton
+            count={1}
+            height={800}
+            width={800}
+            className="px-8 mx-8"
+          ></Skeleton>
+          ):(
+            <SkeletonTheme
+            className="skeleton"
+            color="#1E1E1E"
+            highlightColor="#121212"
+          >
           <Skeleton
             count={1}
             height={800}
             width={800}
             className="px-8 mx-8"
           ></Skeleton>
-        </>
+          </SkeletonTheme>
+          )}
+        </div>
       ) : (
         <div className="grid px-8 pt-24 xl:grid-cols-2 sm:grid-rows-2 ">
           <div className="w-full mt-24 select-none proImage">
@@ -130,7 +148,7 @@ export default function ProductDetails() {
           </div>
 
           <div className="container mx-auto mt-24">
-            <div className="grid items-center gap-4 border-b border-gray-medium">
+            <div className="grid items-center gap-4 border-b border-gray-medium dark:text-white">
               <h1 className="font-bold">{product.productName}</h1>
               <p className="font-bold text-gray-medium">
                 {product.description}
@@ -160,20 +178,20 @@ export default function ProductDetails() {
               </div>
             </div>
             <div className="grid gap-3">
-              <h1 className="text-xl">
+              <h1 className="text-xl dark:text-white">
                 {" "}
                 {"\u20B9"} {product.price}
               </h1>
               <p className="text-purple-medium">Inclusive of all taxes</p>
             </div>
-            <div className="flex items-center justify-between mb-5 w-72">
+            <div className="flex items-center justify-between mb-5 w-72 dark:text-white">
               <h1 className="pt-4 font-bold">Select Size</h1>
               <Link to="/size chart" className="pt-4 text-purple-medium">
                 size chart
               </Link>
-              <div className="mt-4 bg-white border-none outline-none text-purple-medium max-h-10">
+              <div className="mt-4 bg-white border-none outline-none text-purple-medium max-h-10 dark:border-white dark:bg-gray-bgDark">
                 Qty{" "}
-                <select onChange={({ target }) => setCount(target.value)}>
+                <select onChange={({ target }) => setCount(target.value)} className="dark:bg-gray-bgDark">
                   <option value={1}>1</option>
                   <option value={2}>2</option>
                   <option value={3}>3</option>
@@ -186,7 +204,7 @@ export default function ProductDetails() {
             {product.size.map((item) => (
               <button
                 key={item.size}
-                className={`p-3 m-2 text-sm border-2 rounded-full   ${
+                className={`p-3 m-2 text-sm border-2 rounded-full dark:text-white   ${
                   size === item.size
                     ? "border-purple-end text-purple-end"
                     : "border-gray-medium"
@@ -223,7 +241,7 @@ export default function ProductDetails() {
                 <p>ADD TO BAG</p>
               </button>
               <button
-                className={`xs:h-11 flex justify-center sm:h-10 gap-3 pt-2 text-center border-2 rounded-md w-50 ${
+                className={`xs:h-11 flex justify-center sm:h-10 gap-3 pt-2 text-center border-2 rounded-md w-50 dark:text-white ${
                   cart
                     ? "cursor-default bg-gray-medium border-2 border-gray-medium"
                     : null
@@ -233,7 +251,7 @@ export default function ProductDetails() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={`w-6 h-6 ${
-                    cart ? "fill-red text-red-primary disabled" : "text-black"
+                    cart ? "fill-red text-red-primary disabled" : "text-black dark:text-white"
                   }`}
                   fill="none"
                   viewBox="0 0 24 24"
@@ -246,7 +264,7 @@ export default function ProductDetails() {
                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                   />
                 </svg>
-                <p className={`${cart ? "text-white" : "text-black"}`}>
+                <p className={`${cart ? "text-white" : "text-black dark:text-white"}`}>
                   {cart ? `ADDED` : `ADD TO CART`}
                 </p>
               </button>
